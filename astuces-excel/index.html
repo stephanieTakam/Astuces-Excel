@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astuces Excel — Formations gratuites Excel pour professionnels</title>
+  <meta name="description" content="Maîtrisez Excel avec des formations gratuites en vidéo. Formules avancées, tableaux croisés, macros VBA. Du débutant à l'expert."/>
+  <meta name="keywords" content="Excel gratuit, formation Excel, RECHERCHEV, tableaux croisés dynamiques, macros VBA, astuces Excel"/>
+  <link rel="canonical" href="https://astucesexcel.netlify.app/"/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:title"       content="Astuces Excel — Formations gratuites"/>
+  <meta property="og:description" content="Des formations Excel gratuites en vidéo pour booster votre productivité."/>
+  <meta property="og:url"         content="https://astucesexcel.netlify.app/"/>
+  <meta name="twitter:card"       content="summary_large_image"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Astuces Excel","description":"Formations Excel gratuites en vidéo","url":"https://astucesexcel.netlify.app","email":"astuceexcel@gmail.com"}
+  </script>
+
+  <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- Fonts premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/nav.css"/>
+  <link rel="stylesheet" href="css/home.css"/>
+  <link rel="stylesheet" href="css/cards.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="nav-root"></div>
+
+<!-- ================================================
+     HERO
+     ================================================ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-grid"></div>
+  </div>
+
+  <div class="hero-inner">
+    <!-- Texte -->
+    <div class="hero-text">
+      <div class="hero-pill">
+        <div class="hero-pill-dot">✦</div>
+        <span class="hero-pill-text">Formations 100% gratuites</span>
+      </div>
+
+      <h1 class="hero-title">
+        Maîtrisez <em>Excel</em>
+        <span class="line-2">Boostez votre carrière.</span>
+      </h1>
+
+      <p class="hero-desc">
+        Des formations complètes en vidéo, gratuites et accessibles à tous.
+        Du débutant à l'expert — progressez à votre rythme depuis chez vous.
+      </p>
+
+      <div class="hero-actions">
+        <a href="formations.html" class="btn btn-green">
+          ▶ Voir les formations
+        </a>
+        <a href="blog.html" class="btn btn-ghost">
+          📖 Lire le blog
+        </a>
+      </div>
+
+      <div class="hero-stats" id="hero-stats"></div>
+    </div>
+
+    <!-- Widget Excel -->
+    <div class="hero-visual">
+      <div class="excel-mock">
+        <div class="mock-progress-bar"></div>
+        <div class="mock-bar">
+          <div class="mock-dot"></div>
+          <div class="mock-dot"></div>
+          <div class="mock-dot"></div>
+          <span class="mock-tab">rapport-ventes-2025.xlsx</span>
+        </div>
+        <div class="mock-fx">
+          <span class="mock-ref">D8</span>
+          <span class="mock-formula">
+            =<span class="fn">SOMME.SI</span>(<span class="ref">B2:B7</span>,<span class="ref">"Nord"</span>,<span class="num">D2:D7</span>)
+          </span>
+        </div>
+        <div class="mock-grid">
+          <div class="mock-row">
+            <div class="mock-cell head"></div>
+            <div class="mock-cell head">A</div>
+            <div class="mock-cell head">B</div>
+            <div class="mock-cell head">C</div>
+            <div class="mock-cell head">D</div>
+            <div class="mock-cell head">E</div>
+          </div>
+          <div class="mock-row">
+            <div class="mock-cell rn">1</div>
+            <div class="mock-cell txt">Produit</div>
+            <div class="mock-cell txt">Région</div>
+            <div class="mock-cell txt">Qté</div>
+            <div class="mock-cell txt">Ventes</div>
+            <div class="mock-cell txt">Marge</div>
+          </div>
+          <div class="mock-row">
+            <div class="mock-cell rn">2</div>
+            <div class="mock-cell txt">Excel Pro</div>
+            <div class="mock-cell txt">Nord</div>
+            <div class="mock-cell txt">145</div>
+            <div class="mock-cell res">580 000</div>
+            <div class="mock-cell frm">=D2*0.3</div>
+          </div>
+          <div class="mock-row">
+            <div class="mock-cell rn">3</div>
+            <div class="mock-cell txt">Formation</div>
+            <div class="mock-cell txt">Sud</div>
+            <div class="mock-cell txt">89</div>
+            <div class="mock-cell">267 000</div>
+            <div class="mock-cell frm">=D3*0.3</div>
+          </div>
+          <div class="mock-row">
+            <div class="mock-cell rn">4</div>
+            <div class="mock-cell txt">Conseil</div>
+            <div class="mock-cell txt">Nord</div>
+            <div class="mock-cell txt">32</div>
+            <div class="mock-cell">320 000</div>
+            <div class="mock-cell frm">=D4*0.4</div>
+          </div>
+          <div class="mock-row">
+            <div class="mock-cell rn">5</div>
+            <div class="mock-cell txt">Template</div>
+            <div class="mock-cell txt">Est</div>
+            <div class="mock-cell txt">210</div>
+            <div class="mock-cell">105 000</div>
+            <div class="mock-cell frm">=D5*0.5</div>
+          </div>
+          <div class="mock-row">
+            <div class="mock-cell rn">8</div>
+            <div class="mock-cell res" style="font-weight:800">TOTAL NORD</div>
+            <div class="mock-cell"></div>
+            <div class="mock-cell"></div>
+            <div class="mock-cell hi">900 000</div>
+            <div class="mock-cell"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     STATS BAND
+     ================================================ -->
+<div class="stats-band">
+  <div class="stats-band-inner" id="stats-band"></div>
+</div>
+
+<!-- ================================================
+     MARQUEE TAGS
+     ================================================ -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marquee-1"></div>
+  <div class="marquee-track marquee-track-reverse" id="marquee-2"></div>
+</div>
+
+<!-- ================================================
+     FORMATIONS EN VEDETTE
+     ================================================ -->
+<section class="section">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem;">
+      <div>
+        <div class="section-eyebrow">Formations</div>
+        <h2 class="section-h" data-anim>Nos formations <em>gratuites</em></h2>
+        <p class="section-sub" style="margin-top:.8rem;" data-anim data-delay="100">
+          Des modules complets en vidéo pour progresser du débutant à l'expert.
+        </p>
+      </div>
+      <a href="formations.html" class="btn btn-ghost" data-anim>Toutes les formations →</a>
+    </div>
+    <div class="cards-grid" id="formations-grid"></div>
+  </div>
+</section>
+
+<!-- ================================================
+     FEATURES
+     ================================================ -->
+<section class="section" style="background:var(--noir-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="section-center" style="margin-bottom:0;">
+      <div class="section-eyebrow">Pourquoi nous</div>
+      <h2 class="section-h" data-anim>Apprendre Excel n'a jamais<br>été aussi <em>simple</em></h2>
+    </div>
+    <div class="features-grid" id="features-grid"></div>
+  </div>
+</section>
+
+<!-- ================================================
+     BLOG
+     ================================================ -->
+<section class="section">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem;">
+      <div>
+        <div class="section-eyebrow">Blog</div>
+        <h2 class="section-h" data-anim>Dernières <em>astuces</em></h2>
+        <p class="section-sub" style="margin-top:.8rem;" data-anim data-delay="100">
+          Des articles pratiques avec vidéos intégrées pour progresser vite.
+        </p>
+      </div>
+      <a href="blog.html" class="btn btn-ghost" data-anim>Tous les articles →</a>
+    </div>
+    <div class="cards-grid" id="articles-grid"></div>
+  </div>
+</section>
+
+<!-- ================================================
+     CTA
+     ================================================ -->
+<div class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="cta-box">
+    <h2 class="cta-h" data-anim>Prêt à maîtriser <em>Excel</em> ?</h2>
+    <p class="cta-sub" data-anim data-delay="100">
+      Rejoignez des milliers de professionnels qui ont boosté leur productivité grâce à nos formations gratuites.
+    </p>
+    <div class="cta-actions" data-anim data-delay="200">
+      <a href="formations.html" class="btn btn-green">🚀 Commencer gratuitement</a>
+      <a href="blog.html"       class="btn btn-ghost">📖 Lire le blog</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     CONTACT
+     ================================================ -->
+<section class="section" id="contact" style="background:var(--noir-2);border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="section-center" style="margin-bottom:0;">
+      <div class="section-eyebrow">Contact</div>
+      <h2 class="section-h" data-anim>Une <em>question</em> ?</h2>
+      <p class="section-sub" style="margin:.8rem auto 0;text-align:center;" data-anim data-delay="100">
+        Besoin d'aide ou d'une formation sur mesure ? Écrivez-nous !
+      </p>
+    </div>
+    <div class="contact-grid">
+      <div id="contact-infos"></div>
+      <div class="contact-form-box">
+        <form id="cf" novalidate>
+          <div class="form-group">
+            <label>Votre nom *</label>
+            <input type="text" id="cf-nom" placeholder="Votre nom"/>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="cf-email" placeholder="jean@email.com"/>
+          </div>
+          <div class="form-group">
+            <label>Sujet</label>
+            <select id="cf-sujet">
+              <option value="">— Choisissez —</option>
+              <option>Question sur une formation</option>
+              <option>Demande de formation sur mesure</option>
+              <option>Partenariat</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea id="cf-message" placeholder="Votre message..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">✉️ Envoyer</button>
+          <div id="cf-fb" style="display:none;margin-top:.8rem;font-size:.85rem;text-align:center;"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Injection nav + footer
+  document.getElementById('nav-root').innerHTML    = navHTML();
+  document.getElementById('footer-root').innerHTML = footerHTML();
+
+  // Stats hero
+  document.getElementById('hero-stats').innerHTML = DATA.site.stats.map(s => `
+    <div>
+      <div class="hero-stat-val">${s.val.replace('+','')}<span>${s.val.includes('+') ? '+' : ''}</span></div>
+      <div class="hero-stat-label">${s.label}</div>
+    </div>
+  `).join('');
+
+  // Stats band
+  document.getElementById('stats-band').innerHTML = DATA.site.stats.map(s => `
+    <div class="stat-item">
+      <div class="stat-val" data-count="${s.val}">0</div>
+      <div class="stat-lbl">${s.label}</div>
+    </div>
+  `).join('');
+
+  // Marquees
+  const m1 = DATA.site.marquee1;
+  const m2 = DATA.site.marquee2;
+  const repeat = 3;
+  document.getElementById('marquee-1').innerHTML =
+    [...Array(repeat)].flatMap(() => m1).map((t,i) =>
+      `<span class="marquee-tag ${i%4===0?'green':''}">${t}</span>`
+    ).join('');
+  document.getElementById('marquee-2').innerHTML =
+    [...Array(repeat)].flatMap(() => m2).map((t,i) =>
+      `<span class="marquee-tag ${i%3===0?'green':''}">${t}</span>`
+    ).join('');
+
+  // Formations (3)
+  document.getElementById('formations-grid').innerHTML =
+    DATA.formations.slice(0,3).map(cardFormation).join('');
+
+  // Articles (3)
+  document.getElementById('articles-grid').innerHTML =
+    DATA.articles.slice(0,3).map(cardArticle).join('');
+
+  // Features
+  const feats = [
+    { icon:'🎯', title:'100% Pratique', desc:'Chaque formation est basée sur des cas réels. Vous apprenez en faisant, pas en lisant de la théorie.' },
+    { icon:'⚡', title:'Progressez vite', desc:'Des vidéos courtes et ciblées entre 10 et 30 min. Parfait pour apprendre entre deux réunions.' },
+    { icon:'🆓', title:'Gratuit pour tous', desc:'La majorité de nos formations est entièrement gratuite. La connaissance doit être accessible.' },
+    { icon:'📱', title:'Accessible partout', desc:'Regardez depuis votre téléphone, tablette ou PC. Apprenez où vous voulez, quand vous voulez.' },
+    { icon:'🔄', title:'Mis à jour régulièrement', desc:'De nouvelles vidéos chaque semaine. Restez à jour avec les dernières fonctionnalités Excel 365.' },
+    { icon:'💬', title:'Communauté active', desc:'Posez vos questions et progressez avec des milliers d\'apprenants sur notre chaîne YouTube.' },
+  ];
+  document.getElementById('features-grid').innerHTML =
+    feats.map((f,i) => `
+      <div class="feature-item" data-anim data-delay="${i*80}">
+        <div class="feature-icon">${f.icon}</div>
+        <div class="feature-title">${f.title}</div>
+        <p class="feature-desc">${f.desc}</p>
+      </div>`).join('');
+
+  // Contact infos
+  const { email, youtube } = DATA.site;
+  document.getElementById('contact-infos').innerHTML = `
+    <div class="contact-info-item" data-anim>
+      <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+      <div>
+        <div class="contact-info-label">Email</div>
+        <div class="contact-info-val"><a href="mailto:${email}">${email}</a></div>
+      </div>
+    </div>
+    <div class="contact-info-item" data-anim data-delay="100">
+      <div class="contact-info-icon" style="color:#ff0000"><i class="fab fa-youtube"></i></div>
+      <div>
+        <div class="contact-info-label">YouTube</div>
+        <div class="contact-info-val"><a href="${youtube}" target="_blank">Notre chaîne</a></div>
+      </div>
+    </div>
+    <div class="contact-info-item" data-anim data-delay="200">
+      <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+      <div>
+        <div class="contact-info-label">Réponse</div>
+        <div class="contact-info-val">Sous 24h ouvrées</div>
+      </div>
+    </div>`;
+
+  // Formulaire contact
+  document.getElementById('cf').addEventListener('submit', e => {
+    e.preventDefault();
+    const nom  = document.getElementById('cf-nom').value.trim();
+    const mail = document.getElementById('cf-email').value.trim();
+    const msg  = document.getElementById('cf-message').value.trim();
+    const fb   = document.getElementById('cf-fb');
+    if (!nom || !mail || !msg) {
+      fb.style.display = 'block'; fb.style.color = '#ff5f57';
+      fb.textContent = '⚠️ Veuillez remplir tous les champs obligatoires.'; return;
+    }
+    window.location.href = `mailto:${DATA.site.email}?subject=Message depuis le site&body=${encodeURIComponent(`Nom: ${nom}\nEmail: ${mail}\n\n${msg}`)}`;
+    fb.style.display = 'block'; fb.style.color = 'var(--vert)';
+    fb.textContent = '✅ Votre client email va s\'ouvrir.';
+  });
+</script>
+</body>
+</html>

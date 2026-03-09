@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formations Excel Gratuites — Astuces Excel</title>
+  <meta name="description" content="Toutes nos formations Excel gratuites en vidéo. Débutant, intermédiaire, avancé."/>
+  <link rel="canonical" href="https://astucesexcel.netlify.app/formations.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/nav.css"/>
+  <link rel="stylesheet" href="css/cards.css"/>
+  <style>
+    body { padding-top:70px; }
+    .page-content { max-width:var(--max-w); margin:0 auto; padding:3rem var(--px); }
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a><span>/</span><span>Formations</span>
+    </div>
+    <div class="page-hero-ey">📚 Formations</div>
+    <h1 class="page-hero-h">Toutes nos <em>formations</em> Excel</h1>
+    <p class="page-hero-p">Des formations complètes en vidéo, gratuites pour la plupart. Choisissez votre niveau et commencez maintenant.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="toolbar">
+    <div class="filtres" id="filtres">
+      <button class="filtre-btn active" data-f="tous">Tous</button>
+      <button class="filtre-btn" data-f="gratuit">Gratuit</button>
+      <button class="filtre-btn" data-f="premium">Premium</button>
+      <button class="filtre-btn" data-f="Débutant">Débutant</button>
+      <button class="filtre-btn" data-f="Intermédiaire">Intermédiaire</button>
+      <button class="filtre-btn" data-f="Avancé">Avancé</button>
+    </div>
+    <div class="count-label" id="count"></div>
+  </div>
+  <div class="cards-grid" id="grid"></div>
+</div>
+
+<div id="footer-root"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('nav-root').innerHTML    = navHTML();
+  document.getElementById('footer-root').innerHTML = footerHTML();
+
+  function render(f) {
+    let list = DATA.formations;
+    if (f === 'gratuit')       list = list.filter(x => x.gratuit);
+    else if (f === 'premium')  list = list.filter(x => !x.gratuit);
+    else if (f !== 'tous')     list = list.filter(x => x.niveau === f);
+    document.getElementById('count').innerHTML = `<strong>${list.length}</strong> formation${list.length>1?'s':''}`;
+    document.getElementById('grid').innerHTML  = list.length
+      ? list.map(cardFormation).join('')
+      : `<div class="empty"><div class="empty-icon">📭</div><p>Aucune formation dans cette catégorie.</p></div>`;
+  }
+
+  document.getElementById('filtres').addEventListener('click', e => {
+    const btn = e.target.closest('.filtre-btn');
+    if (!btn) return;
+    document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render(btn.dataset.f);
+  });
+
+  render('tous');
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="pt">Article — Astuces Excel</title>
+  <meta name="description" id="pd" content="Astuce Excel avec vidéo."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/nav.css"/>
+  <link rel="stylesheet" href="css/detail.css"/>
+  <style> body { padding-top:70px; } </style>
+</head>
+<body>
+<div id="nav-root"></div>
+<div id="root"></div>
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('nav-root').innerHTML    = navHTML();
+  document.getElementById('footer-root').innerHTML = footerHTML();
+
+  const id = new URLSearchParams(location.search).get('id');
+  const a  = DATA.articles.find(x => x.id === id);
+
+  if (!a) {
+    document.getElementById('root').innerHTML = `
+      <div style="text-align:center;padding:8rem 2rem;color:var(--blanc-muted);">
+        <div style="font-size:3rem;margin-bottom:1rem">😕</div>
+        <h2 style="font-family:var(--font-display);color:var(--blanc);margin-bottom:1.5rem">Article introuvable</h2>
+        <a href="blog.html" class="btn btn-ghost">← Retour au blog</a>
+      </div>`;
+  } else {
+    document.getElementById('pt').textContent = a.titre + ' — Astuces Excel';
+    document.getElementById('pd').content     = a.desc;
+
+    let vi = 0;
+
+    document.getElementById('root').innerHTML = `
+      <div class="detail-hero">
+        <div class="detail-hero-inner">
+          <div class="breadcrumb">
+            <a href="index.html">Accueil</a><span>/</span>
+            <a href="blog.html">Blog</a><span>/</span>
+            <span>${a.titre}</span>
+          </div>
+          <div class="detail-badges">
+            ${a.tags.map(t=>`<span class="badge badge-dim">${t}</span>`).join('')}
+          </div>
+          <h1 class="detail-title">${a.titre}</h1>
+          <p class="detail-desc">${a.desc}</p>
+          <div class="detail-meta">
+            <div class="detail-meta-item">📅 <strong>${formatDate(a.date)}</strong></div>
+            <div class="detail-meta-item">📖 <strong>${a.lecture}</strong></div>
+            <div class="detail-meta-item">▶ <strong>${a.videos.length} vidéo${a.videos.length>1?'s':''}</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-layout">
+        <!-- Colonne principale -->
+        <div class="detail-main">
+          ${a.videos.length ? `
+            <div class="detail-section-title">▶ Vidéos</div>
+            <div class="videos-list" id="vlist"></div>
+          ` : ''}
+
+          ${a.contenu ? `
+            <div class="detail-section-title" style="margin-top:3rem">📖 Article complet</div>
+            <div class="article-body">${a.contenu}</div>
+          ` : ''}
+
+          <!-- Partage -->
+          <div class="share-row">
+            <span class="share-label">Partager</span>
+            <a href="https://wa.me/?text=${encodeURIComponent(a.titre+' — '+location.href)}"
+               target="_blank" class="share-btn share-wa">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+
+          <!-- Autres articles -->
+          <div style="margin-top:3rem;">
+            <div class="detail-section-title">📰 Autres articles</div>
+            <div class="autres-grid" id="autres"></div>
+          </div>
+        </div>
+
+        <!-- Sidebar lecteur -->
+        ${a.videos.length ? `
+          <div class="detail-sidebar">
+            <div class="player-wrap">
+              <iframe id="player" src="${a.videos[0].url}?autoplay=0"
+                allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+                allowfullscreen></iframe>
+              <div class="player-label" id="player-label">${a.videos[0].titre}</div>
+            </div>
+            ${a.videos.length > 1 ? `
+              <div class="player-nav">
+                <button class="player-nav-btn" id="btn-prev" onclick="nav(-1)" disabled>← Précédente</button>
+                <button class="player-nav-btn" id="btn-next" onclick="nav(1)">Suivante →</button>
+              </div>` : ''}
+          </div>
+        ` : ''}
+      </div>`;
+
+    // Liste vidéos
+    if (a.videos.length) {
+      function renderList() {
+        document.getElementById('vlist').innerHTML = a.videos.map((v,i) => `
+          <div class="video-item ${i===vi?'active':''}" onclick="pick(${i})">
+            <div class="vi-num">${i+1}</div>
+            <div class="vi-title">${v.titre}</div>
+            <div class="vi-dur">${v.dur}</div>
+          </div>`).join('');
+      }
+
+      window.pick = function(i) {
+        vi = i;
+        document.getElementById('player').src = a.videos[i].url + '?autoplay=1';
+        document.getElementById('player-label').textContent = a.videos[i].titre;
+        const prev = document.getElementById('btn-prev');
+        const next = document.getElementById('btn-next');
+        if (prev) prev.disabled = i === 0;
+        if (next) next.disabled = i === a.videos.length - 1;
+        renderList();
+      };
+
+      window.nav = d => { const n = vi+d; if(n>=0 && n<a.videos.length) pick(n); };
+      renderList();
+    }
+
+    // Autres articles
+    const autres = DATA.articles.filter(x => x.id !== id).slice(0, 4);
+    document.getElementById('autres').innerHTML = autres.map(x => `
+      <a href="article.html?id=${x.id}" class="autre-card">
+        <div class="autre-emoji">${x.emoji}</div>
+        <div class="autre-title">${x.titre}</div>
+        <div class="autre-meta">📖 ${x.lecture}</div>
+      </a>`).join('');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Excel — Astuces, conseils et tutoriels</title>
+  <meta name="description" content="Astuces Excel pratiques avec vidéos intégrées. Progressez rapidement avec nos articles tutoriels."/>
+  <link rel="canonical" href="https://astucesexcel.netlify.app/blog.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/nav.css"/>
+  <link rel="stylesheet" href="css/cards.css"/>
+  <style>
+    body { padding-top:70px; }
+    .page-content { max-width:var(--max-w); margin:0 auto; padding:3rem var(--px); }
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a><span>/</span><span>Blog</span>
+    </div>
+    <div class="page-hero-ey">📰 Blog</div>
+    <h1 class="page-hero-h">Astuces & <em>Tutoriels</em> Excel</h1>
+    <p class="page-hero-p">Des articles pratiques avec vidéos intégrées. Chaque article est une astuce directement applicable au travail.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="toolbar">
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+      <div class="filtres" id="filtres">
+        <button class="filtre-btn active" data-f="tous">Tous</button>
+        <button class="filtre-btn" data-f="productivité">Productivité</button>
+        <button class="filtre-btn" data-f="formules">Formules</button>
+        <button class="filtre-btn" data-f="dashboard">Dashboard</button>
+        <button class="filtre-btn" data-f="données">Données</button>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+      <div class="search-wrap">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="search" placeholder="Rechercher..."/>
+      </div>
+      <div class="count-label" id="count"></div>
+    </div>
+  </div>
+  <div class="cards-grid" id="grid"></div>
+</div>
+
+<div id="footer-root"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('nav-root').innerHTML    = navHTML();
+  document.getElementById('footer-root').innerHTML = footerHTML();
+
+  let filtre = 'tous', query = '';
+
+  function render() {
+    let list = DATA.articles;
+    if (filtre !== 'tous') list = list.filter(a => a.tags.includes(filtre));
+    if (query.trim()) {
+      const q = query.toLowerCase();
+      list = list.filter(a => a.titre.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q) || a.tags.some(t => t.toLowerCase().includes(q)));
+    }
+    document.getElementById('count').innerHTML = `<strong>${list.length}</strong> article${list.length>1?'s':''}`;
+    document.getElementById('grid').innerHTML  = list.length
+      ? list.map(cardArticle).join('')
+      : `<div class="empty"><div class="empty-icon">🔍</div><p>Aucun article trouvé.</p></div>`;
+  }
+
+  document.getElementById('filtres').addEventListener('click', e => {
+    const btn = e.target.closest('.filtre-btn');
+    if (!btn) return;
+    document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filtre = btn.dataset.f;
+    render();
+  });
+
+  document.getElementById('search').addEventListener('input', e => { query = e.target.value; render(); });
+
+  render();
+</script>
+</body>
+</html>
