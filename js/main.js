@@ -191,7 +191,9 @@ function footerHTML() {
       <div class="footer-inner">
         <div>
           <div class="footer-logo">
-            <div class="footer-logo-mark">📊</div>
+            <div class="footer-logo-mark"><img src="images/logo.png" 
+       alt="Astuces Excel" loading="lazy"
+       style="height:30px;width:auto;border-radius:5px;" /></div>
             ${nom}
           </div>
           <p class="footer-desc">${description}</p>

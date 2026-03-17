@@ -34,7 +34,7 @@ const DATA = {
       nbVideos: 4,
       tags: ["bases","interface","formules"],
       videos: [
-        { titre: "Langage et extension",       url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "12:34" },
+        { titre: "Langage et extension",       url: "https://www.youtube.com/embed/bxAAd_f7KT4", dur: "12:34" },
         { titre: "1ère partie",   url: "https://www.youtube.com/embed/TwSfYFCw14U", dur: "18:22" },
         { titre: "2ème partie",   url: "https://www.youtube.com/embed/pWDwdGLKj90", dur: "24:10" },
         { titre: "3ème partie",          url: "https://www.youtube.com/embed/NSlIqCYAj9k", dur: "15:45" }
