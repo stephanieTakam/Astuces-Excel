@@ -9,12 +9,13 @@ const DATA = {
     slogan:      "Maîtrisez Excel. Boostez votre carrière.",
     description: "Des formations et astuces Excel gratuites, pensées pour les professionnels africains. Du débutant à l'expert.",
     email:       "astuceexcel@gmail.com",
-    youtube:     "https://youtube.com/@astucesexcel",  // ← mettre à jour
-    whatsapp:    "+237600000000",                       // ← mettre à jour
+    facebook:   "https://www.facebook.com/groups/794610047709913/",  // ← mettre à jour
+    youtube:     "https://youtu.be/uK8H8TsxqCs",  // ← mettre à jour 
+    pinterest: "https://www.pinterest.fr/astucesexcel/",                 // ← mettre à jour
     stats: [
-      { val: "50+",    label: "Vidéos gratuites" },
+      { val: "20+",    label: "Vidéos gratuites" },
       { val: "5 000+", label: "Apprenants actifs" },
-      { val: "4",      label: "Formations complètes" },
+      { val: "5+",      label: "Formations complètes" },
       { val: "100%",   label: "Gratuit" },
     ],
     marquee1: ["RECHERCHEV","TABLEAUX CROISÉS","SOMME.SI","INDEX+EQUIV","MACROS VBA","MISE EN FORME","GRAPHIQUES","FORMULES","POWER QUERY","FILTRES AVANCÉS","VALIDATION","DASHBOARD"],
@@ -24,24 +25,19 @@ const DATA = {
   formations: [
     {
       id: "excel-debutant",
-      titre: "Excel pour Débutants",
-      desc: "Partez de zéro et maîtrisez les fondamentaux en une semaine. Idéal pour les professionnels qui veulent gagner en efficacité.",
-      image: "",
-      emoji: "📊",
+      titre: "LES BASES D'EXCEL",
+      desc: "Partez de zéro et maîtrisez les fondamentaux à votre rythme. Idéal pour les professionnels qui veulent gagner en efficacité.",
+      image: "images/basesbig.png",
       gratuit: true,
       niveau: "Débutant",
       duree: "3h30",
-      nbVideos: 8,
+      nbVideos: 4,
       tags: ["bases","interface","formules"],
       videos: [
-        { titre: "Introduction et interface Excel",       url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "12:34" },
-        { titre: "Saisie et mise en forme des données",   url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "18:22" },
-        { titre: "Formules essentielles : SOMME, MOYENNE",url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "24:10" },
-        { titre: "Mise en forme conditionnelle",          url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "15:45" },
-        { titre: "Créer vos premiers graphiques",         url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "20:30" },
-        { titre: "Filtres et tris de données",            url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "16:18" },
-        { titre: "Impression et mise en page",            url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "11:05" },
-        { titre: "Projet final : tableau de bord simple", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "28:14" },
+        { titre: "Langage et extension",       url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "12:34" },
+        { titre: "1ère partie",   url: "https://www.youtube.com/embed/TwSfYFCw14U", dur: "18:22" },
+        { titre: "2ème partie",   url: "https://www.youtube.com/embed/pWDwdGLKj90", dur: "24:10" },
+        { titre: "3ème partie",          url: "https://www.youtube.com/embed/NSlIqCYAj9k", dur: "15:45" }
       ]
     },
     {
@@ -159,7 +155,7 @@ const DATA = {
       lecture: "12 min",
       tags: ["formules","RECHERCHEV","données"],
       videos: [
-        { titre: "RECHERCHEV expliqué simplement",        url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "18:45" },
+        { titre: "RECHERCHEV expliqué simplement",        url: "https://youtu.be/bxAAd_f7KT4", dur: "18:45" },
         { titre: "Cas pratiques RECHERCHEV",              url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "22:10" },
         { titre: "Erreurs courantes et comment les éviter",url: "https://www.youtube.com/embed/dQw4w9WgXcQ", dur: "15:30" },
       ],

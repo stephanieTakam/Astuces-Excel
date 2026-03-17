@@ -165,7 +165,9 @@ function navHTML() {
     <nav class="nav">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
-          <div class="nav-logo-mark">📊</div>
+          <div class="nav-logo-mark"><img src="images/logo.png" 
+       alt="Astuces Excel" loading="lazy"
+       style="height:30px;width:auto;border-radius:5px;" /></div>
           Astuces <span>Excel</span>
         </a>
         <button class="nav-toggle" aria-label="Menu">
@@ -183,7 +185,7 @@ function navHTML() {
 
 /* ---- Footer HTML ---- */
 function footerHTML() {
-  const { nom, description, email, youtube } = DATA.site;
+  const { nom, description, email, youtube, facebook, pinterest } = DATA.site;
   return `
     <footer class="footer">
       <div class="footer-inner">
@@ -196,6 +198,12 @@ function footerHTML() {
           <div class="footer-social">
             <a href="${youtube}" target="_blank" class="footer-soc-link" aria-label="YouTube">
               <i class="fab fa-youtube"></i>
+            </a>
+            <a href="${facebook}" target="_blank" class="footer-soc-link" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="${pinterest}" target="_blank" class="footer-soc-link" aria-label="Pinterest">
+              <i class="fab fa-pinterest"></i>
             </a>
             <a href="mailto:${email}" class="footer-soc-link" aria-label="Email">
               <i class="fas fa-envelope"></i>
@@ -215,6 +223,8 @@ function footerHTML() {
           <ul class="footer-links">
             <li><a href="mailto:${email}">${email}</a></li>
             <li><a href="${youtube}" target="_blank">Chaîne YouTube</a></li>
+            <li><a href="${facebook}" target="_blank">Page Facebook</a></li>
+            <li><a href="${pinterest}" target="_blank">Plaque Pinterest</a></li>
           </ul>
         </div>
       </div>
